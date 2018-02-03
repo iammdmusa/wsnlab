@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .main.container.text-xs-center
+    h1.display-3 Welcome To Smart Home Application 
+    p.lead Please have a look on You room details info
+    .data
+      p.lead Time : #{data.time} & Date : #{data.date} / #{data.month} / #{data.year}
+      p.lead Temperature: #{data.temperature}
+      p.lead Humidity: #{data.humidity}
+      p.lead Sound: #{data.sound}
+      p.note Sound 0 mean application didn't find any sound and 1 mean fond the sound.
+    
+
+

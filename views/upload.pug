@@ -1,0 +1,15 @@
+extends layout.pug
+
+block content 
+    section#upload
+        .container
+            .row
+                .col-md-12.text-center
+                    h1.display-4 Upload Sensor Data 
+                    // register form
+                    form(action="/upload" method="post" enctype="multipart/form-data")      
+                        .form-group
+                            label(for="file") Please Choose JSON file
+                            input(type='file', name='file')
+                            input(type='submit' value='Upload File')
+                
