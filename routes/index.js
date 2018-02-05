@@ -24,11 +24,12 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 // GET /
 router.get('/', function(req, res, next) {
-	db.collection('sensordatas').findOne({}, function(err, data){
+	db.collection('sensordatas').find().sort({_id: -1}).limit(1).toArray((err, data) => {
 		if (err) throw err
-		return res.render('index', { title: 'Sensor Data',data: data});
-   });
-  //return res.render('index', { title: 'Home' });
+		if(data){
+			return res.render('index', { title: 'Sensor Data',data: data[0]});
+		}
+	});
 });
 
 // GET /about
@@ -88,7 +89,7 @@ router.post('/upload', upload.single('file'),function(req, res, next){
 			let timeString = dt.getSeconds()+':'+ dt.getMinutes()+':'+dt.getHours();
 			let monthString = monthNames[dt.getMonth()];
 			let yearString = dt.getFullYear();
-				console.log(timeString);
+				
 		
 			var sensorData = {
 				dateTime: obj.dateTime,
@@ -105,7 +106,7 @@ router.post('/upload', upload.single('file'),function(req, res, next){
 					return next(err);
 				}else{
 					console.log('YES');
-					return  res.redirect('/upload');
+					return  res.redirect('/');
 				}
 			});
 			console.log('well done!. file proccsed');
