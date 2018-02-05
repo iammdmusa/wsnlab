@@ -24,12 +24,12 @@ app.use(session({
   })
 }));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
-
 
 // parse incoming requests
 app.use(bodyParser.json());
