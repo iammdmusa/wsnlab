@@ -2,9 +2,10 @@
 /* Base Styles */
 
 body {
-	background: #1d2a33 url('../images/bg.png') no-repeat;
-    background-size: cover; 
+    background: linear-gradient(#000000, rgba(98, 101, 228, 0.21)),url(../images/bg.jpg) no-repeat;
+    background-size: cover;
     padding-top: 75px;
+    position: relative;
 }
 
 a:hover {
