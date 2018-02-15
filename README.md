@@ -1,1 +1,1 @@
-# Smart Home Teperature, Humidity & Sound ditection
+# Remote Smart Home Surveillance with Sensors
